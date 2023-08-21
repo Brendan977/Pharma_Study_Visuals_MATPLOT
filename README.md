@@ -73,35 +73,45 @@ Zoniferol	        53.236507	        51.818479	                48.533355	        
 
 # Merged dataframe which visualizes drug regimens at the beginning of their timepoint to the end of their timepoint.
 # To be used for quartiles, outliers, and boxplots.
-# (Struggled to merge all data from the cleaned dataframe)
 
-                Mouse ID	Timepoint	Tumor Volume (mm3)	Metastatic Sites	Sex	Age_months	Weight (g)
-Drug Regimen							
-Capomulin	        b128	       0	    45.000000	            0	           Female	9	    22
-Ceftamin	        x822	       0	    45.000000	            0	            Male	3	    29
-Infubinol	        c326	       0	    45.000000	            0	            Female	18	    25
-Ketapril	        f932	       0	    45.000000	            0	            Male	15	    29
-Naftisol	        f993	       0	    45.000000	            0	            Male	21	    28
-Placebo	            a897	       0	    45.000000	            0	            Male	7	    28
-Propriva	        n630	       0	    45.000000	            0	            Female	15	    29
-Ramicane	        c458	       0	    45.000000	            0	            Female	23	    20
-Stelasyn	        f234	       0	    45.000000	            0	            Male	14	    28
-Zoniferol	        f394	       0	    45.000000	            0	            Male	19	    30
-Capomulin	        u364	       45	    31.023923	            3	            Male	18	    17
-Ceftamin	        p438	       45	    61.433892	            1	            Female	11	    26
-Infubinol	        f345	       45	    60.918767	            1	            Male	23	    26
-Ketapril	        u327	       45	    66.268801	            2	            Male	17	    25
-Naftisol	        z795	       45	    65.741070	            3	            Female	13	    29
-Placebo	            x773	       45	    58.634971	            4	            Female	21	    30
-Propriva	        v991	       45	    70.167749	            4	            Female	10	    30
-Ramicane	        i177	       45	    33.562402	            3	            Male	10	    18
-Stelasyn	        b879	       45	    72.555239	            2	            Female	4	    26
-Zoniferol	        c559	       45	    61.840058	            4	            Female	19	    28
+    Mouse ID	Timepoint	Tumor Volume (mm3)	Metastatic Sites	Drug Regimen	Sex	    Age_months	Weight (g)
+0	    a203	    45	        67.973419	                  2	        Infubinol	Female	    20	    23
+1	    a251	    45	        65.525743	                  1	        Infubinol	Female	    21	    25
+2	    a262	    45	        70.717621	                  4	        Placebo	    Female	    17	    29
+3	    a275	    45	        62.999356	                  3	        Ceftamin	Female	    20	    28
+4	    a366	    30	        63.440686	                  1	        Stelasyn	Female	    16	    29
+                ...	...	...	...	...	...	...	...	...
+244	    z435	    10	        48.710661	                  0	        Propriva	Female	    12	    26
+245	    z578	    45	        30.638696	                  0	        Ramicane	Male	    11	    16
+246	    z581	    45	        62.754451	                  3	        Infubinol	Female	    24	    25
+247	    z795	    45	        65.741070	                  3	        Naftisol	Female	    13	    29
+248	    z969	    45	        73.867845	                  4	        Naftisol	Male	    9	    30
 
+# Using the merged dataframe and appending the final tumor volumes to an empty list, then the quartiles and outliers were visualized using a box plot. This was done using the lower and upper bounds of the values recorded.
+![Alt text](image-2.png) 
 
+# To visualize the tumor volume vs. time point (in a single mouse treated with capomulin), after selecting a specific mouse id and gathering data on its tumor volume throughout the course of its treatment process, a line plot can then be generated.
+![Alt text](image-4.png) 
 
-# Unable to Complete my Analysis for the the rest of the plots, but I hope to be able to resubmit the challenge once completed.
+# Finally, for the last visualizations, we generated a scatter plot of mouse weight vs. the average observed tumor volume for all mice treated with capomulin. One without a visual of the linear regression and one with.
 
+# No LR:
+![Alt text](image-5.png) 
+
+# LR: 
+![Alt text](image-6.png) 
+
+# Analysis: 
+
+After analyzing the data, it appears that the drug regimen of Capomulin shows promise of being an effective drug to treat Squamous Cell Carcinoma in mice. Notably in the observation of a single mouse,
+after the 20th day of treatment, a drastic change in tumor volume was observed. This could potentially mean
+that Capomulin is effective in treating cancer, although more data would need to be analyzed to make any 
+clear indication that this is true. 
+In addition, the data suggests that weight plays a factor in tumor volume for mice. For example, of the mice in 
+the Capomulin regimen, those with a larger weight appeared to have a larger tumor volume, as for those with a lower weight
+had a smaller tumor. This data has importance because if the ultimate goal is to apply our findings to humans and the 
+treatment of Squamous Cell Carcinoma, data could possibly indicate similar results which could help in the prevention
+or limit the degree that this cancer can appear.
 
 # Resources
 
@@ -118,3 +128,7 @@ https://www.geeksforgeeks.org/how-to-combine-two-dataframe-in-python-pandas/
 https://sparkbyexamples.com/pandas/pandas-get-list-of-all-duplicate-rows/#:~:text=You%20can%20use%20df%5Bdf,duplicate%20rows%20in%20our%20DataFrame. 
 
 https://www.educative.io/answers/how-to-convert-series-to-dataframe-in-pandas 
+
+https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.agg.html 
+
+https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.linregress.html 
